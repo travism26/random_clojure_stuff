@@ -46,3 +46,4 @@
 (def y 30)
 (some-func x y)
 (println "global values: x" x "y" y)
+
