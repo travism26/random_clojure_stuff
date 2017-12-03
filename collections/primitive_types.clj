@@ -50,7 +50,7 @@
 (println my-name)
 
 (def test-data 
-  {{:id 1, },
+  {{:id 1},
    {:id 2}}
   )
 
