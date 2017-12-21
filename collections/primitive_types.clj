@@ -48,13 +48,17 @@
 (def my-name (print-vector test-data :name))
 
 (println my-name)
+(println (print-vector test-data :something-else))
 
-(def test-data 
+
+(def test-data2 
   {{:id 1},
    {:id 2}}
   )
 
-(println data)
+
+
+
 
 (def data 
   {{
