@@ -99,3 +99,97 @@
 
 (assoc food :breakfest "pancakes")
 
+
+; hash-sets do not contain dups
+(type #{2 4 5 6}) 
+
+(hash-set 2 5 3 2)
+
+(set [2 :4 "6" 8])
+
+;faster the 'set'
+(into #{} '(:2 4 "6"))
+
+(sorted-set 2 1 3 5 9 8)
+
+(def s #{2 4 6 7})
+
+(conj s 10 22 31) 
+
+(disj s 2 6 10)
+
+(contains? s 4)
+(contains? s 112)
+
+(get s 4)
+
+
+; sequences
+
+(seq? '(1 2 3))
+
+(seq? [2 5 6])
+
+(seq '(9 8 7))
+
+(seq {:2 4 :6 8})
+
+(first [2 3 4])
+
+(nth '(2 4 5 6) 2)
+
+(nth [2 4 5] 2)
+
+(cons 2 '(3 5 1))
+
+(cons 5 [2 3 6])
+
+; lazy seq
+
+(defn random-nums []
+  (lazy-seq
+   (println "read some random numbers")
+   (cons (rand-int 100)
+         (random-nums))))
+
+(println "starting ran nums")
+(def nums (take 10 (random-nums)))
+
+(println "first:")
+(println (first nums))
+(println "nth")
+(println (nth nums 3))
+
+(println "count 1:")
+(println (count nums))
+
+(println "count 2:")
+(println (count nums))
+
+(seq [9 8 7 6])
+
+(vals {:a "hello" :b "there"}) 
+(keys {:a "hello" :b "there"}) 
+
+(range 10)
+
+(distinct [1 2 3 5 1 2])
+
+(filter even? (range 10))
+
+(cons 10 [2 5 9])
+
+(concat '(2 5 1) [6 1 10])
+(interleave '(2 5 1) [6 1 10])
+(interleave '(2 5 1) [6 1 10] '(:hello :travis :sup))
+(rest [2 4 6 8 10])
+
+(reverse "hello")
+(reverse [2 3 4 5])
+(sort [5 4 3 1 9 8])
+
+
+
+
+
+
