@@ -18,3 +18,31 @@
 
 (println p)
 
+; proxy java class'
+
+;this is how we do it now for examples
+;(proxy [class-and-interface] [args] fs+)
+
+;extend the Object class
+
+(defn proxy-example
+  []
+  (proxy [Object] []
+    (toString [] "Hello World")))
+
+(println (.toString (proxy-example)))
+
+(defn proxy-collection []
+  (proxy [java.util.Collection] []
+    (add [o]
+      (println "PROXY:" o)
+      true)
+    (clear []
+      (println "proxy clearing eh")
+      true)))
+(.add (proxy-collection) "adding an item eh")
+(.add (proxy-collection) "adding something else eh")
+(.clear (proxy-collection))
+
+
+
