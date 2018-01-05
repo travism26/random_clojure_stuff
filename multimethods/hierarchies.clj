@@ -27,7 +27,6 @@
 (println (area {:shape :rectangle :height 10 :width 2}))
 (println (area {:shape :triangle :base 5 :height 10}))
 
-
 (derive ::square ::rectangle)
 (println (area {:shape ::square :height 5 :width 5}))
 ;(println (area {:shape :rectangle :height 5 :width 5}))
