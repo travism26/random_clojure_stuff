@@ -26,9 +26,15 @@
     (println "money transfer thingie here:\t" dollar-amount "$")
     (str "Do some money transfer with:\t" dollar-amount "$")))
 
+(deftype CreditCahdPayment [cost account]
+  PaymentProtocol
+  (ProcessPayment [this]
+    (println (str "Cost of item: " cost "$ sending payment to account: " account))))
+
+
 (def cash-output (ProcessPayment (CashPayment. 5)))
 (def transfer-output (ProcessPayment (MoneyTransfer. 15)))
-
+(def credit-output (ProcessPayment (CreditCahdPayment. 4 123)))
 (println cash-output)
 (println transfer-output)
 
@@ -44,3 +50,9 @@
 
 (print (Point. 2 4))
 (println (diff (Point. 2 5) (Point. 4 10)))
+
+(comment donno wtf i was doing here...
+  (defprotocol eh
+      (request [this])
+    (process [this])))
+
