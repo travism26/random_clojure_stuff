@@ -46,5 +46,42 @@
   (println "going to block")
   ;(>!! example-chan3 "jim")
   (println "NEVER REACHED")
-  
 )
+
+; puts:
+;   inside `go` blocks: >! or >!!
+;   outside `go` blocks: >!!
+; takes:
+;   inside `go` blocks: <! or <!!
+;   outside `go` blocks: <!!
+
+; blocking functions:
+; - <!! and >!!
+; - familar thread waiting.
+; - waits for something to happen.
+; - creates a seperate action waiting for something else.
+
+; Parking functions
+; - <! and >!
+; - only possible within a `go` blocks
+; - different type of thread waiting put waits on take and vice verse
+; - moves the waiting task off the thread, freeing it up
+; - moved back on when ready to be processed
+; - interleaves multiple takes on a single thread
+(defn parking-fn []
+  (println "\n-----")
+  (def lots-of-tasks-chan (chan))
+  (doseq [n (range 100)]
+    (go (>! lots-of-tasks-chan (str "Travis, M:" n))))
+  (doseq [n (range 10)]
+    (println (<!! lots-of-tasks-chan)))
+  )
+
+(defn channels []
+  (let [in (chan)
+        out (chan)]
+    (go (println "Given: " (<! in))
+        (>! out "hello world"))
+    [in out]))
+
+

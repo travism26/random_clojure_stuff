@@ -4,13 +4,15 @@
              :refer [>! <! >!! <!! go chan buffer close! thread
                      alts! alts!! timeout]]
             [clojureclass.learning-go
-              :as learning]))
+             :as learn-go]))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (println "Hello, World!")
-  (learning/myf)
+  ;(learn-go/myf)
 
-  (learning/chan-stuff)
+  ;(learn-go/chan-stuff)
+  
+  (learn-go/parking-fn)
   )
