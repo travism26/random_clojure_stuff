@@ -14,5 +14,9 @@
 
   ;(learn-go/chan-stuff)
   
-  (learn-go/parking-fn)
+  ;(learn-go/parking-fn)
+
+  ;(learn-go/run-channel)
+
+  (learn-go/fun-with-let)
   )

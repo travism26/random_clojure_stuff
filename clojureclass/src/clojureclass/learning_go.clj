@@ -77,11 +77,38 @@
     (println (<!! lots-of-tasks-chan)))
   )
 
-(defn channels []
+(defn two-channels []
   (let [in (chan)
         out (chan)]
     (go (println "Given: " (<! in))
         (>! out "hello world"))
     [in out]))
 
+(defn run-channel []
+  (let [[in-chan out-chan] (two-channels)]
+    (>!! in-chan 12)
+    (println "received: " (<!! out-chan))))
 
+(defn fun-with-let []
+  (let [c (chan)]
+    (println "Starting the let block....")
+    ; This will block? outside the go block
+    ;(>!! c "testing 1")
+
+    ; >!! blocks until the channel is ready
+    ; <!! takes outside a go block - blocks eh
+    ; this is never reached though
+    
+    ;(println "take off the queue aka chan")
+    ;(println (<!! c))
+
+    ; >! puts to a channel - inside a go block - parks
+    (go (>! c "testing 2"))
+
+    ; <! takes from a channel - inside go block - parks
+    (go (println (<! c)))
+
+    ;
+    (<!! (timeout 100))
+    )
+  )
