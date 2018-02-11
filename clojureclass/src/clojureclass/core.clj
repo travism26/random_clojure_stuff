@@ -4,7 +4,9 @@
              :refer [>! <! >!! <!! go chan buffer close! thread
                      alts! alts!! timeout]]
             [clojureclass.learning-go
-             :as learn-go]))
+             :as learn-go]
+            [clojureclass.learning-onto
+             :as learn-onto]))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -18,5 +20,7 @@
 
   ;(learn-go/run-channel)
 
-  (learn-go/fun-with-let)
+  ;(learn-go/fun-with-let)
+  
+  (learn-onto/fun-with-flags)
   )

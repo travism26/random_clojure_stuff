@@ -2,7 +2,7 @@
   (:require [clojure.core.async
              :as async
              :refer [>! <! >!! <!! go chan buffer close! thread
-                     alts! alts!! timeout]]))
+                     alts! alts!! timeout put! take!]]))
 
 (defn myf []
   (println "hello"))
@@ -108,7 +108,21 @@
     ; <! takes from a channel - inside go block - parks
     (go (println (<! c)))
 
-    ;
+    ; `timeout` will create a channel that closes in a passed in miliseconds
     (<!! (timeout 100))
+    
+    (go (println (<! c)))
+    (>!! c "testing 3 dude")
+    (<!! (timeout 100))
+
+    (put! c "test 4" (fn [v] 
+                       (println "in put! f:" v)))
+    
+    (take! c (fn [v] 
+               (println "in take! f:" v)))
+
+    (<!! (timeout 100))
+    
+    (println "all done bruh")
     )
   )
