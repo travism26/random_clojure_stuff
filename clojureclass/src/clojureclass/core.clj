@@ -6,12 +6,16 @@
             [clojureclass.learning-go
              :as learn-go]
             [clojureclass.learning-onto
-             :as learn-onto]))
+             :as learn-onto]
+            [clojureclass.learning-buffers
+             :as learn-buffer]
+            [clojureclass.learning-transducers
+             :as learn-transducers]))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!")
+  ;(println "Hello, World!")
   ;(learn-go/myf)
 
   ;(learn-go/chan-stuff)
@@ -22,5 +26,11 @@
 
   ;(learn-go/fun-with-let)
   
-  (learn-onto/fun-with-flags)
+  ;(learn-onto/fun-with-flags)
+
+  ;(learn-onto/f3)
+
+  ;(learn-buffer/f1)
+
+  (learn-transducers/f1)
   )
