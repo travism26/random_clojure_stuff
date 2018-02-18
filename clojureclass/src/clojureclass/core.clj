@@ -32,5 +32,8 @@
 
   ;(learn-buffer/f1)
 
-  (learn-transducers/f1)
+  (learn-transducers/f3)
+  (learn-transducers/test-xform)
+  
+  (learn-transducers/f4)
   )
