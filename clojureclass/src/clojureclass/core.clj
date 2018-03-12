@@ -12,7 +12,9 @@
             [clojureclass.learning-transducers
              :as learn-transducers]
             [clojureclass.pipelines
-             :as learn-pipeline]))
+             :as learn-pipeline]
+            [clojureclass.exceptions
+             :as learn-exception]))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -39,5 +41,6 @@
   
   ;(learn-transducers/f4)
 
-  (learn-pipeline/f2)
+  ;(learn-pipeline/f2)
+  (learn-exception/f1)
   )

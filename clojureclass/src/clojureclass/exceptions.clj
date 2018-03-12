@@ -8,5 +8,10 @@
 
 (defn f1 []
   ; Testing some exception handling eh
+  (try 
+    (assert (= 5 (+ 2 2)) "This should be 4?")
+    (catch Throwable ex
+      (println "Exception time!")
+      (println ex)))
   )
 
