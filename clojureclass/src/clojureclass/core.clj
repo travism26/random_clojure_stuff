@@ -10,7 +10,9 @@
             [clojureclass.learning-buffers
              :as learn-buffer]
             [clojureclass.learning-transducers
-             :as learn-transducers]))
+             :as learn-transducers]
+            [clojureclass.pipelines
+             :as learn-pipeline]))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -32,8 +34,10 @@
 
   ;(learn-buffer/f1)
 
-  (learn-transducers/f3)
-  (learn-transducers/test-xform)
+  ;(learn-transducers/f3)
+  ;(learn-transducers/test-xform)
   
-  (learn-transducers/f4)
+  ;(learn-transducers/f4)
+
+  (learn-pipeline/f2)
   )
