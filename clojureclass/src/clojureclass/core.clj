@@ -42,5 +42,5 @@
   ;(learn-transducers/f4)
 
   ;(learn-pipeline/f2)
-  (learn-exception/f1)
+  (learn-exception/f3)
   )
