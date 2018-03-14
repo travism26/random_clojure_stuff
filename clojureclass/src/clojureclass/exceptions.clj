@@ -38,5 +38,4 @@
     (try 
       (>!! c v)
       (catch Throwable ex
-        (println "Cant put nil on channel")))
-    ))
+        (println "Cant put nil on channel")))))
