@@ -126,3 +126,10 @@
     (println "all done bruh")
     )
   )
+
+(defn f2 []
+  (def c (chan 1024))
+  (go (println (<! c))
+      (println "I read something from c"))
+  (>!! c "this is a test")
+  (<!! (timeout 100)))
