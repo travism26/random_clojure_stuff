@@ -14,7 +14,9 @@
             [clojureclass.pipelines
              :as learn-pipeline]
             [clojureclass.exceptions
-             :as learn-exception]))
+             :as learn-exception]
+            [clojureclass.learning-httpkit 
+             :as learn-httpkit]))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -43,5 +45,5 @@
 
   ;(learn-pipeline/f2)
   ;(learn-exception/f3)
-  (learn-go/f2)
+  (learn-go/f6)
   )

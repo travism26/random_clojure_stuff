@@ -2,7 +2,7 @@
   (:require [clojure.core.async
              :as async
              :refer [>! <! >!! <!! go chan buffer close! thread
-                     alts! alts!! timeout put! take!]]))
+                     alts! alts!! timeout put! take! go-loop]]))
 
 (defn myf []
   (println "hello"))
@@ -132,4 +132,72 @@
   (go (println (<! c))
       (println "I read something from c"))
   (>!! c "this is a test")
-  (<!! (timeout 100)))
+  (<!! (timeout 100))
+  )
+
+(defn f3 []
+  (def c (chan 1024))
+  (go-loop [seconds 1]
+  ; `timeout` returns a channel that will close in give number of mill secs
+    (<! (timeout (* seconds 1000)))
+    (println "waited " seconds "seconds")
+    (recur (inc seconds)))
+  (read-line)
+
+  (go-loop []
+           (let [x (<! c)]
+             (println "received:" x))
+           (recur))
+
+  (doseq [n (range 3)]
+    (>!! c n))
+  (read-line)
+  )
+
+(defn fake-search [search-type]
+  (fn [q]
+    (let [c (chan)]
+      (go
+        (<! (timeout (rand-int 5000)))
+        (>! c (str "result for " search-type ":" q)))
+      c)))
+
+(def web-search (fake-search "web"))
+(def image-search (fake-search "image"))
+(def video-search (fake-search "video"))
+
+(defn search-engine [q]
+  (let [c (chan)]
+    (go (>! c (<! (web-search q))))
+    (go (>! c (<! (image-search q))))
+    (go (>! c (<! (video-search q))))
+    (go-loop []
+      (let [x (<! c)]
+        (println "received: " x))
+      (recur)))
+  )
+
+(defn f4 []
+  (search-engine "testing")
+  (read-line))
+
+
+(defn f5 []
+  (def c1 (chan 1024))
+  (def c2 (chan 1024))
+  (go (let [s1 (<! c1)
+            s2 (str s1 " eh almost made it")]
+        (>! c2 s2)))
+  
+  (>!! c1 "Canada,")
+  (println "read from c2: " (<!! c2)))
+
+
+(defn f6 []
+  (def my-chan (let [c (chan)]
+                 (go (>! c "testing 1 3 2"))))
+
+  (println my-chan)
+  (go (>! my-chan "sent to my-chan"))
+  (println "got:" (<!! my-chan))
+  )
