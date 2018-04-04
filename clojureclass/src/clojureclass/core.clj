@@ -45,5 +45,6 @@
 
   ;(learn-pipeline/f2)
   ;(learn-exception/f3)
-  (learn-go/f6)
+  ;(learn-go/f6)
+  (learn-httpkit/run-search)
   )
