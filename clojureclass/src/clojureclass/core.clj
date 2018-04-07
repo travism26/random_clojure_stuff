@@ -16,7 +16,9 @@
             [clojureclass.exceptions
              :as learn-exception]
             [clojureclass.learning-httpkit 
-             :as learn-httpkit]))
+             :as learn-httpkit]
+            [clojureclass.learning-reduce
+             :as learn-reduce]))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -47,4 +49,6 @@
   ;(learn-exception/f3)
   ;(learn-go/f6)
   (learn-httpkit/run-search)
+
+  (learn-reduce/f1)
   )
