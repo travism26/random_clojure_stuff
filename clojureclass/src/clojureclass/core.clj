@@ -48,7 +48,7 @@
   ;(learn-pipeline/f2)
   ;(learn-exception/f3)
   ;(learn-go/f6)
-  (learn-httpkit/run-search)
+  ;(learn-httpkit/run-search)
 
-  (learn-reduce/f1)
+  (learn-reduce/f3)
   )
