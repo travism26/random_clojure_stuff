@@ -50,5 +50,5 @@
   ;(learn-go/f6)
   ;(learn-httpkit/run-search)
 
-  (learn-reduce/f3)
+  (learn-reduce/f5)
   )

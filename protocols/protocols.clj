@@ -1,4 +1,5 @@
-
+; polymorphism
+; polymorphic functions -- i think?
 (defprotocol MyProtocol 
   (myprint [this]) 
   (mycount [this]))
