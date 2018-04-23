@@ -18,7 +18,10 @@
             [clojureclass.learning-httpkit 
              :as learn-httpkit]
             [clojureclass.learning-reduce
-             :as learn-reduce]))
+             :as learn-reduce]
+            [clojureclass.webscraper
+             :as webscraper]
+            ))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -50,5 +53,7 @@
   ;(learn-go/f6)
   ;(learn-httpkit/run-search)
 
-  (learn-reduce/f5)
+  ;(learn-reduce/f5)
+
+  (webscraper/f1)
   )
