@@ -21,6 +21,8 @@
              :as learn-reduce]
             [clojureclass.webscraper
              :as webscraper]
+            [clojureclass.testing-webscraping
+             :as tw]
             ))
 
 (defn -main
@@ -56,4 +58,6 @@
   ;(learn-reduce/f5)
 
   (webscraper/f1)
+
+  (tw/run)
   )

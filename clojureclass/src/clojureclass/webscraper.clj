@@ -23,8 +23,12 @@
 
   (let [titles (extract-titles (get-dom ""))]
     ;(doall (map println titles))
-    (get-in titles [:attrs :id])
+    ;(get-in titles [:attrs :id])
     (pprint titles)
+    (println "--------\n")
+    (println (type titles))
+    ;(print (get-in titles [:tag]))
+    (println (map #(get-in % [:attrs :value]) titles))
     )
   )
 
