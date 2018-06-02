@@ -57,6 +57,10 @@
 
 (def fruit {:red "green apple..." :yellow "banananananana" :blue "blue stuff"})
 
+;(type fruit)
+
+(type fruit)
+
 (get fruit :red)
 
 (get fruit :yellow)
