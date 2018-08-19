@@ -7,8 +7,9 @@
                  [org.clojure/core.async "0.4.474"]
                  [http-kit "2.3.0-beta2"]
                  [enlive "1.1.6"]]
-  :plugins [[refactor-nrepl "2.3.1"]
-            [cider/cider-nrepl "0.14.0"]]
+  :plugins [
+            ;; [refactor-nrepl "2.3.1"]
+            [cider/cider-nrepl "0.18.0"]]
   :main ^:skip-aot clojureclass.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
